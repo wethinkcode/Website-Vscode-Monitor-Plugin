@@ -20,6 +20,7 @@ $ vcse package
 ```
 
 Once this is done, install it manually through VSCODE
+or Download it from relases
 
 ## Extension Settings
 This extension contributes the following settings:
@@ -28,6 +29,7 @@ This extension contributes the following settings:
  "WebsiteStatusUpdater.WebsitesToUse": [
         {
             "url": "https://google.com",
+            "redirect_url": "https://google.com",
             "name": "Google Oogle"
         }
     ]
@@ -59,5 +61,9 @@ This extension contributes the following settings:
  - Can open links by clicking on the service
  - Unreachable services error out with a -1 for now
  
+
+ ### 0.0.7
+
+ - Rework entire system
 
 -----------------------------------------------------------------------------------------------------------

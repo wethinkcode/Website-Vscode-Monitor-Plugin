@@ -6,6 +6,13 @@
   "engines": {
     "vscode": "^1.52.0"
   },
+  "publisher": "WeThinkCode",
+  "repository": {
+    "url": "https://github.com/wethinkcode/Website-Vscode-Monitor-Plugin"
+  },
+  "author": {
+    "name": "Julian Wolf"
+  },
   "categories": [
     "Other"
   ],

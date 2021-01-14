@@ -20,14 +20,13 @@ export function activate(context: vscode.ExtensionContext) {
   );
 
   vscode.commands.registerCommand('websiteStatus.refreshEntry', () => {
-    vscode.window.showInformationMessage("REFRESH");
     lmsStatusProvider.refresh();
   });
 
   setInterval(() => {
     lmsStatusProvider = new LmsStatusProvider(getMap());
     lmsStatusProvider.refresh();
-  }, 60 * 60 * 60);
+  }, 600000);
 }
 
 function getMap(): Array<Website> {

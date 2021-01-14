@@ -36,6 +36,7 @@ class LmsStatusProvider implements vscode.TreeDataProvider<Status> {
     readonly onDidChangeTreeData: vscode.Event<Status | undefined | null | void> = this._onDidChangeTreeData.event;
 
     public refresh(): void {
+        vscode.window.showInformationMessage("Refreshing status");
         this._onDidChangeTreeData.fire();
     }
 }

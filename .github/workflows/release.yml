@@ -13,15 +13,12 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-
-      - name: Setup node 15
-        uses: actions/setup-node@v2
-        with:
-          node-version: 15.x
-      - name: Install Packages and build
+      - run: npm install
         continue-on-error: true
-        run: npm i && vsce package
-
+      - uses: lannonbr/vsce-action@master
+        with:
+          args: "package"
+      
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v0.1.5
         if: startsWith(github.ref, 'refs/tags/')

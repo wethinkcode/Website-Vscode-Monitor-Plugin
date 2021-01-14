@@ -7,7 +7,7 @@ const map2: Array<Website> = [
 
 export function activate(context: vscode.ExtensionContext) {
 
-  let lmsStatusProvider = new LmsStatusProvider(getMap());
+  let lmsStatusProvider = new LmsStatusProvider();
 
   vscode.window.createTreeView('websiteStatus', {
     treeDataProvider: lmsStatusProvider
@@ -19,28 +19,12 @@ export function activate(context: vscode.ExtensionContext) {
   );
 
   vscode.commands.registerCommand('websiteStatus.refreshEntry', () => {
-    lmsStatusProvider = new LmsStatusProvider(getMap());
     lmsStatusProvider.refresh();
   });
 
   setInterval(() => {
-    console.log("Refreshing");
-    lmsStatusProvider = new LmsStatusProvider(getMap());
     lmsStatusProvider.refresh();
   }, 60000 * 10);
-}
-
-function getMap(): Array<Website> {
-  const websites = vscode.workspace.getConfiguration('WebsiteStatusUpdater')['WebsitesToUse'];
-
-  var map: Array<Website> = [];
-
-  for (var x = 0; x < websites.length; x++)
-  {
-    map.push(new Website(websites[x]['website'], websites[x]['name'], 0, ""));
-  }
-
-  return map;
 }
 
 export {

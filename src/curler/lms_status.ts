@@ -3,17 +3,19 @@ import * as vscode from 'vscode';
 import { Website } from '../class/Website';
 import { Status } from '../class/Status';
 import { getStatus } from './get_status';
+import { time } from 'console';
 
 
 class LmsStatusProvider implements vscode.TreeDataProvider<Status> {
-    constructor(private map: Array<Website>) { }
+    constructor(private map?: Array<Website>) { }
 
     getTreeItem(element: Status): vscode.TreeItem {
         return element;
     }
 
     async getChildren(element?: Status): Promise<Status[]> {
-        if (!this.map) {
+        this.map = getMap();
+        if (!this.map || this.map.length == 0) {
             vscode.window.showInformationMessage('Map is empty or null');
             return Promise.resolve([]);
         }
@@ -36,9 +38,23 @@ class LmsStatusProvider implements vscode.TreeDataProvider<Status> {
 
     public refresh(): void {
         vscode.window.showInformationMessage("Refreshing status");
-        this._onDidChangeTreeData.fire();
+        this._onDidChangeTreeData.fire(undefined);
     }
 }
+
+function getMap(): Array<Website> {
+    const websites = vscode.workspace.getConfiguration('WebsiteStatusUpdater')['WebsitesToUse'];
+  
+    var map: Array<Website> = [];
+  
+    for (var x = 0; x < websites.length; x++)
+    {
+      map.push(new Website(websites[x]['website'], websites[x]['name'], 0, ""));
+    }
+  
+    return map;
+  }
+  
 
 export {
     LmsStatusProvider

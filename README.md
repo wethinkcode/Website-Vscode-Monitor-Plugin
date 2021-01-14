@@ -49,4 +49,8 @@ This extension contributes the following settings:
 - Interval Working again
 - Images include now thanks to Github action
 
+
+### 0.0.5
+
+ - Now updates list when changes made to setting
 -----------------------------------------------------------------------------------------------------------

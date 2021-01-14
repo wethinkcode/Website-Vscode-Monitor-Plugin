@@ -35,8 +35,7 @@ This extension contributes the following settings:
 ## Known Issues
 
  - Not offcially relesed
- - Github Action doesnt include the svgs to display status color
- - Tree doesnt update proprely.
+ - Tree doesnt update proprely. (new additions)
 
 ## Release Notes
 
@@ -48,5 +47,6 @@ This extension contributes the following settings:
 ### 0.0.4
 
 - Interval Working again
+- Images include now thanks to Github action
 
 -----------------------------------------------------------------------------------------------------------

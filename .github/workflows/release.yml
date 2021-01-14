@@ -27,6 +27,17 @@ jobs:
           echo 'I WILL EVENTUALLY AUTO BUMP'
           sed -i 's/^  "version": .*/  "version": "'${GITHUB_REF/refs\/tags\/v/}'",/g' package.json
 
+      - name: Commit bumped package.json and package-lock.json files
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add package.json package-lock.json
+          git commit -m "Bump package version for release!" -a
+
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
         
       - uses: lannonbr/vsce-action@master
         with:

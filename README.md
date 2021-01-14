@@ -36,7 +36,7 @@ This extension contributes the following settings:
 
  - Not offcially relesed
  - Github Action doesnt include the svgs to display status color
- - Timeout not working properly for repeat activation
+ - Tree doesnt update proprely.
 
 ## Release Notes
 
@@ -44,5 +44,9 @@ This extension contributes the following settings:
 
 - We have a TreeView of the services
 - Update button to update services
+
+### 0.0.4
+
+- Interval Working again
 
 -----------------------------------------------------------------------------------------------------------

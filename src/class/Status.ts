@@ -5,11 +5,12 @@ import * as path from 'path';
 class Status extends vscode.TreeItem {
   constructor(
     public shortName: String,
-    public status: number,
+    public status: Number,
+    public statusText: String,
     public readonly collapsibleState: vscode.TreeItemCollapsibleState
   ) {
     super(`${shortName}`, collapsibleState);
-    this.tooltip = `${this.status}`;
+    this.tooltip = `${this.statusText}`;
     this.description = this.status.toString();
     if (this.status >= 200 && this.status <= 299) {
       this.iconPath = {

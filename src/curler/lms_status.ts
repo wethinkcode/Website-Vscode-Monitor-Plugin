@@ -17,15 +17,14 @@ class LmsStatusProvider implements vscode.TreeDataProvider<Status> {
             vscode.window.showInformationMessage('Map is empty or null');
             return Promise.resolve([]);
         }
-
         let statuses: Status[] = [];
         
         for(var i = 0; i < this.map.length; i++)
         {
-            this.map[i].status = await getStatus(this.map[i].website);
-            
+            let [code, message] = await getStatus(this.map[i].website);
+
             statuses.push(
-                new Status(this.map[i].shortName, this.map[i].status, vscode.TreeItemCollapsibleState.None)
+                new Status(this.map[i].shortName, code, message, vscode.TreeItemCollapsibleState.None)
             );
         }
 

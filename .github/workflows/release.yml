@@ -15,6 +15,9 @@ jobs:
       - uses: actions/checkout@v2
       - run: npm install
         continue-on-error: true
+        
+      - run: mkdir -p ./out/resources
+      - run: cp ./src/resources/* ./out/resources*
       - uses: lannonbr/vsce-action@master
         with:
           args: "package"

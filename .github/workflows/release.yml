@@ -13,7 +13,8 @@ jobs:
 
     steps:
       - name: Bump Version
-        run: sed -i 's/^  "version": .*/"  version": "'${GITHUB_REF/refs\/tags\/v/}'",/g' package.json
+        run: |
+          sed -i 's/^  "version": .*/"  version": "'${GITHUB_REF/refs\/tags\/v/}'",/g' package.json
 
       - uses: actions/checkout@v2
       - run: npm install

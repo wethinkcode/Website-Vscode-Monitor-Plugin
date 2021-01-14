@@ -6,6 +6,8 @@ on:
 name: Run Unit Tests
 jobs:
   build:
+    if: ${{ startsWith(github.ref, 'refs/tags/') }}
+    runs-on: ${{ matrix.operating-system }}
     strategy:
       matrix:
         operating-system: [ubuntu-latest]

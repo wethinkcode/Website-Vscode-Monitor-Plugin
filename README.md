@@ -12,6 +12,15 @@
 - Start with `npm -i`
 - To test it in a Exenstion developer window just press `F5`
 
+## Build
+
+```
+$ npm i -g vsce
+$ vcse package
+```
+
+Once this is done, install it manually through VSCODE
+
 ## Extension Settings
 This extension contributes the following settings:
  

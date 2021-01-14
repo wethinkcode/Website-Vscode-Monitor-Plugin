@@ -12,6 +12,9 @@ jobs:
         operating-system: [ubuntu-latest]
 
     steps:
+      - name: Bump Version
+        run: sed -i 's/^  "version": .*/"  version": "'${GITHUB_REF/refs\/tags\/v/}'",/g' package.json
+
       - uses: actions/checkout@v2
       - run: npm install
         continue-on-error: true
@@ -27,10 +30,3 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           files: website-monitor-service-*.vsix
-      
-      - name:  'Automated Version Bump'
-        uses:  'phips28/gh-action-bump-version@master'
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag-prefix:  ''

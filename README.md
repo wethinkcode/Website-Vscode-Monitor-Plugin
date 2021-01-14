@@ -26,12 +26,14 @@ This extension contributes the following settings:
 ## Known Issues
 
  - Not offcially relesed
+ - Github Action doesnt include the svgs to display status color
+ - Timeout not working properly for repeat activation
 
 ## Release Notes
 
 ### 0.0.1
 
 - We have a TreeView of the services
-- Set to update every 3.6 minutes
+- Update button to update services
 
 -----------------------------------------------------------------------------------------------------------

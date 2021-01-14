@@ -25,7 +25,15 @@ class Status extends vscode.TreeItem {
         dark: path.join(__filename, '..', '..', 'resource', 'Red.svg')
       };
     }
+    
+    this.command = {
+      title: "Open Site",
+      command: "websiteStatus.openWebsite",
+      arguments: [ this.shortName ]
+    }
   }
 }
+
+
 
 export { Status };

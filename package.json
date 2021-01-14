@@ -25,6 +25,10 @@
       {
         "command": "websiteStatus.refreshEntry",
         "title": "Update"
+      },
+      {
+        "command": "websiteStatus.openWebsite",
+        "title": "Hello World"
       }
     ],
     "views": {

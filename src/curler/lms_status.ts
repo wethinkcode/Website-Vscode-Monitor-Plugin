@@ -57,5 +57,6 @@ function getMap(): Array<Website> {
   
 
 export {
-    LmsStatusProvider
+    LmsStatusProvider,
+    getMap
 };

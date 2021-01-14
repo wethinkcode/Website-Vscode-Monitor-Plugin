@@ -53,4 +53,11 @@ This extension contributes the following settings:
 ### 0.0.5
 
  - Now updates list when changes made to setting
+
+ ### 0.0.6
+
+ - Can open links by clicking on the service
+ - Unreachable services error out with a -1 for now
+ 
+
 -----------------------------------------------------------------------------------------------------------

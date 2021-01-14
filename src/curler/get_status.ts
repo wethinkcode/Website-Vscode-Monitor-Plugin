@@ -6,7 +6,7 @@ async function getStatus(url: String): Promise<[Number, String]> {
         rejectUnauthorized: false
     });
 
-    let regex = /(\d\d\d)/gm;
+    let regex = /[\d]{3}$/gm;
     try {
         const response = await axios.get(url, { httpsAgent:agent, timeout: 2000 });
         return [response.status, response.statusText];

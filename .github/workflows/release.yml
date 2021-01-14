@@ -21,10 +21,7 @@ jobs:
       - name: Install Packages and build
         continue-on-error: true
         run: npm i
-      - uses: lannonbr/vsce-action@master
-        name: Package
-        with:
-          args: "package"
+        run: vsce package
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v0.1.5

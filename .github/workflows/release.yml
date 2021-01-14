@@ -17,10 +17,14 @@ jobs:
       - run: npm install
         continue-on-error: true
 
-      - name: Bump Version
+      - name: Setup Repo
         run: |
-          ls -la
-          pwd
+          mkdir -p ./out
+          cp -R ./src/resource ./out
+      
+      - name: Bump
+        run: |
+          echo 'I WILL EVENTUALLY AUTO BUMP'
 
         
       - uses: lannonbr/vsce-action@master

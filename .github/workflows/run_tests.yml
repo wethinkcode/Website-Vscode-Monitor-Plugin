@@ -13,17 +13,15 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - run: npm install
-        continue-on-error: true
+      - run: npm install --loglevel=error
 
       - name: Setup Repo
         run: |
           mkdir -p ./out
           cp -R ./src/resource ./out
 
-      - name: Run lint && tests
+      - name: Run lint && tests (WILL FAIL)
       # Tempory
         continue-on-error: true
         run: |
           npm run test
-          cat /home/runner/.npm/_logs/*-debug.log

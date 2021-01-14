@@ -27,7 +27,7 @@ This extension contributes the following settings:
 ```
  "WebsiteStatusUpdater.WebsitesToUse": [
         {
-            "website": "https://google.com",
+            "url": "https://google.com",
             "name": "Google Oogle"
         }
     ]

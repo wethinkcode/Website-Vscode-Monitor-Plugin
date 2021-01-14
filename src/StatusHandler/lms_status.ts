@@ -1,36 +1,33 @@
 import * as vscode from 'vscode';
 
-import { Website } from '../class/Website';
 import { Status } from '../class/Status';
 import { getStatus } from './get_status';
-import { time } from 'console';
 
 
-class LmsStatusProvider implements vscode.TreeDataProvider<Status> {
-    constructor(private map?: Array<Website>) { }
+class WebsiteStatusProvider implements vscode.TreeDataProvider<Status> {
+    constructor(private map?: Array<Status>) { }
 
     getTreeItem(element: Status): vscode.TreeItem {
         return element;
     }
 
-    async getChildren(element?: Status): Promise<Status[]> {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    async getChildren(_element?: Status): Promise<Status[]> {
         this.map = getMap();
         if (!this.map || this.map.length == 0) {
             vscode.window.showInformationMessage('Map is empty or null');
             return Promise.resolve([]);
         }
-        let statuses: Status[] = [];
         
-        for(var i = 0; i < this.map.length; i++)
+        for(let i = 0; i < this.map.length; i++)
         {
-            let [code, message] = await getStatus(this.map[i].website);
+            const [code, message] = await getStatus(this.map[i].url);
 
-            statuses.push(
-                new Status(this.map[i].shortName, code, message, vscode.TreeItemCollapsibleState.None)
-            );
+            this.map[i].updateStatusCode(code);
+            this.map[i].updateStatusText(message);
         }
 
-        return Promise.resolve(statuses);
+        return Promise.resolve(this.map);
     }
 
     private _onDidChangeTreeData: vscode.EventEmitter<Status | undefined | null | void> = new vscode.EventEmitter<Status | undefined | null | void>();
@@ -42,21 +39,18 @@ class LmsStatusProvider implements vscode.TreeDataProvider<Status> {
     }
 }
 
-function getMap(): Array<Website> {
+function getMap(): Array<Status> {
     const websites = vscode.workspace.getConfiguration('WebsiteStatusUpdater')['WebsitesToUse'];
-  
-    var map: Array<Website> = [];
-  
-    for (var x = 0; x < websites.length; x++)
+    const map: Array<Status> = [];
+    for (let x = 0; x < websites.length; x++)
     {
-      map.push(new Website(websites[x]['website'], websites[x]['name'], 0, ""));
+      map.push(new Status(websites[x]['name'], websites[x]['url'], websites[x]['redirect_url']));
     }
-  
     return map;
-  }
+}
   
 
 export {
-    LmsStatusProvider,
+    WebsiteStatusProvider,
     getMap
 };

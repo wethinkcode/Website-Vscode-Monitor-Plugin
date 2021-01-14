@@ -9,6 +9,7 @@
 
 ## Run Dev Testing
 
+- Start with `npm -i`
 - To test it in a Exenstion developer window just press `F5`
 
 ## Extension Settings

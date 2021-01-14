@@ -21,7 +21,8 @@ jobs:
       - name: Install Packages and build
         continue-on-error: true
         run: npm i
-        uses: lannonbr/vsce-action@master
+      - uses: lannonbr/vsce-action@master
+        name: Package
         with:
           args: "package"
 

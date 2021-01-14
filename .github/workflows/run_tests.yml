@@ -4,7 +4,7 @@ on:
       - "**"
 
 name: Run Unit Tests
-job:
+jobs:
   build:
     strategy:
       matrix:

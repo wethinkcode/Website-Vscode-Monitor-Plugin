@@ -26,13 +26,15 @@ or Download it from relases
 This extension contributes the following settings:
  
 ```
- "WebsiteStatusUpdater.WebsitesToUse": [
+    "WebsiteStatusUpdater.WebsitesToUse": [
         {
             "url": "https://google.com",
             "redirect_url": "https://google.com",
             "name": "Google Oogle"
         }
-    ]
+    ],
+    "WebsiteStatusUpdater.PollingTime": 10,
+    "WebsiteStatusUpdater.Timeout": 2500,
 ```
 ## Known Issues
 

@@ -1,4 +1,5 @@
 import * as vscode from 'vscode';
+import { getTimeToPoll } from './functions/get_time_to_poll';
 import { WebsiteStatusProvider } from './StatusHandler/lms_status';
 
 export function activate(context: vscode.ExtensionContext): void {
@@ -27,7 +28,7 @@ export function activate(context: vscode.ExtensionContext): void {
 
   setInterval(() => {
     websiteStatusProvider.refresh();
-  }, 60000 * 10);
+  }, 60000 * getTimeToPoll());
 }
 
 export {

@@ -51,6 +51,14 @@
     "configuration": {
       "title": "WesitesToUse",
       "properties": {
+        "WebsiteStatusUpdater.PollingTime": {
+          "type": "number",
+          "default": 10
+        },
+        "WebsiteStatusUpdater.Timeout": {
+          "type": "number",
+          "default": 2000
+        },
         "WebsiteStatusUpdater.WebsitesToUse": {
           "type": "array",
           "default": [

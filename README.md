@@ -41,29 +41,33 @@ This extension contributes the following settings:
 
 ## Release Notes
 
-### 0.0.1
+ ### 0.0.8
 
-- We have a TreeView of the services
-- Update button to update services
+ - Ability to set PollingTime for refresh to happen, it is based on minutes.
+ - Timeouts on request can now be set dynamincally, requires Restart
+ 
+ ### 0.0.7
+
+ - Rework entire system
+ 
+ ### 0.0.6
+
+ - Can open links by clicking on the service
+ - Unreachable services error out with a -1 for now
+ 
+### 0.0.5
+
+ - Now updates list when changes made to setting
 
 ### 0.0.4
 
 - Interval Working again
 - Images include now thanks to Github action
 
+### 0.0.1
 
-### 0.0.5
+- We have a TreeView of the services
+- Update button to update services
 
- - Now updates list when changes made to setting
-
- ### 0.0.6
-
- - Can open links by clicking on the service
- - Unreachable services error out with a -1 for now
- 
-
- ### 0.0.7
-
- - Rework entire system
 
 -----------------------------------------------------------------------------------------------------------

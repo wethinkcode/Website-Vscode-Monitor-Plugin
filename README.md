@@ -43,7 +43,7 @@ This extension contributes the following settings:
 
 ## Release Notes
 
- ### 0.0.8.1
+ ### 0.0.8
 
  - Fix missing Dependecies
  - Ability to set PollingTime for refresh to happen, it is based on minutes.

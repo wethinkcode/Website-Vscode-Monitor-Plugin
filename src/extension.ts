@@ -2,6 +2,8 @@ import * as vscode from 'vscode';
 import { getTimeToPoll } from './functions/get_time_to_poll';
 import { WebsiteStatusProvider } from './StatusHandler/lms_status';
 
+
+//Main 
 export function activate(context: vscode.ExtensionContext): void {
 
   const disposable = vscode.commands.registerCommand('websiteStatus.openWebsite', (url: string) => {

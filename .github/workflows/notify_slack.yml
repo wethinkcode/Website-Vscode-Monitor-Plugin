@@ -10,7 +10,7 @@ jobs:
         operating-system: [ubuntu-latest]
 
     env:
-      VERSION: ${GITHUB_REF/refs\/tags\/v/}
+      VERSION: ${{ GITHUB_REF/refs\/tags\/v/ }}
 
     steps:
       - uses: actions/checkout@v2

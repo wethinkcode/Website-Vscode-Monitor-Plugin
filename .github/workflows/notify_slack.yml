@@ -9,16 +9,17 @@ jobs:
       matrix:
         operating-system: [ubuntu-latest]
 
-    env:
-      VERSION: ${{ GITHUB_REF/refs\/tags\/v/ }}
-
     steps:
+      - uses: actions-ecosystem/action-release-label@v1
+        id: release-label
+
       - uses: actions/checkout@v2
       - name: Slack Notification
         uses: rtCamp/action-slack-notify@v2
         env:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-          SLACK_MESSAGE: wtc-lms ${{env.VERSION}} is released
+          SLACK_MESSAGE: |
+           'wtc-lms '${{ steps.release-label.new_version }}' is released'
           MSG_MINIMAL: true
           SLACK_USERNAME: NewDeployment
           SLACK_MSG_AUTHOR: Release Bot

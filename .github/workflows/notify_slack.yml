@@ -16,3 +16,5 @@ jobs:
         env:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
           SLACK_MESSAGE: I DID A THING WHOOOHOOO
+          MSG_MINIMAL: true
+          SLACK_USERNAME: NewDeployment

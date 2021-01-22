@@ -10,7 +10,7 @@ jobs:
         operating-system: [ubuntu-latest]
 
     env:
-      VERSION: ${ GITHUB_REF/refs\/tags\/v/ }
+      VERSION:
 
     steps:
       - name: Slack Notification
@@ -19,6 +19,6 @@ jobs:
         with:
           slack-bot-user-oauth-access-token: ${{ secrets.SLACK_OAUTH }}
           slack-channel: 02_fixes_and_lms_thingies
-          slack-text: (IGNORE ME)A new version of the lms is available "${{ env.VERSION }}"
+          slack-text: (IGNORE ME)A new version of the lms is available "'${ GITHUB_REF/refs\/tags\/v/ }'"
       - name: Result from Slack Notification
         run: echo "The result was ${{ steps.notify.outputs.slack-result }}"

@@ -13,7 +13,6 @@ jobs:
       - uses: actions-ecosystem/action-get-latest-tag@v1
         id: get-latest-tag
 
-      # - uses: actions/checkout@v2
       # - name: Slack Notification
       #   uses: rtCamp/action-slack-notify@v2
       #   env:
@@ -28,6 +27,9 @@ jobs:
       #     SLACK_ICON: https://github.com/rtCamp.png?size=48
 
 
+      - uses: actions/checkout@v2
+        name: Checkout Repo
+        
       - name: Slack Notification
         uses: archive/github-actions-slack@v1.0.3
         id: notify

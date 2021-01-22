@@ -23,7 +23,7 @@ jobs:
         with:
           slack-bot-user-oauth-access-token: ${{ secrets.SLACK_OAUTH }}
           slack-channel: 02_fixes_and_lms_thingies
-          slack-optional-as_user: true
+          slack-optional-as_user: false
           slack-text: |
             <@2020_cohort> A new version of the lms is available `${{ steps.get-latest-tag.outputs.tag }}`
       - name: Result from Slack Notification

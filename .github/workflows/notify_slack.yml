@@ -31,7 +31,7 @@ jobs:
         uses: archive/github-actions-slack@v1.0.3
         id: notify
         with:
-          slack-bot-oauth-access-token: ${{ secrets.SLACK_OAUTH }}
+          slack-bot-user-oauth-access-token: ${{ secrets.SLACK_OAUTH }}
           slack-channel: zendesk queries
           slack-text: A new version of the lms is available "${{ steps.release-label.new_version }}"
       - name: Result from Slack Notification

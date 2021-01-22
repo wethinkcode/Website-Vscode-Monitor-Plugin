@@ -21,3 +21,4 @@ jobs:
           SLACK_MSG_AUTHOR: Release Bot
           SLACK_FOOTER: Please update to the latest version
           SLACK_TITLE: There is a new release available
+          SLACK_ICON: https://github.com/rtCamp.png?size=48

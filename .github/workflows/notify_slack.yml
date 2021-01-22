@@ -9,6 +9,9 @@ jobs:
       matrix:
         operating-system: [ubuntu-latest]
 
+    env:
+      VERSION: ${ GITHUB_REF/refs\/tags\/v/ }
+
     steps:
       - uses: actions-ecosystem/action-release-label@v1
         id: release-label

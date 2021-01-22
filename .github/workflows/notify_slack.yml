@@ -1,4 +1,4 @@
-on: push
+on: workflow_dispatch
 name: Slack Notification
 
 jobs:
@@ -22,9 +22,9 @@ jobs:
         id: notify
         with:
           slack-bot-user-oauth-access-token: ${{ secrets.SLACK_OAUTH }}
-          slack-channel: 02_fixes_and_lms_thingies
+          slack-channel: ${{ secrets.SLACK_CHANNEL }}
           slack-optional-link_names: true
           slack-text: |
-            @2020_cohort A new version of the lms is available `${{ steps.get-latest-tag.outputs.tag }}`
+            @2020_cohort A new version of the `${{ github.event.repository.name }}` is available `${{ steps.get-latest-tag.outputs.tag }}`
       - name: Result from Slack Notification
         run: echo "The result was ${{ steps.notify.outputs.slack-result }}"

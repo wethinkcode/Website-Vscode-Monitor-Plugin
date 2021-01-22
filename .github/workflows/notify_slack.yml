@@ -9,16 +9,31 @@ jobs:
       matrix:
         operating-system: [ubuntu-latest]
 
-    env:
-      VERSION:
-
     steps:
+      - uses: actions-ecosystem/action-release-label@v1
+        id: release-label
+
+      # - uses: actions/checkout@v2
+      # - name: Slack Notification
+      #   uses: rtCamp/action-slack-notify@v2
+      #   env:
+      #     SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+      #     SLACK_MESSAGE: |
+      #      'wtc-lms '${{ steps.release-label.new_version }}' is released'
+      #     MSG_MINIMAL: true
+      #     SLACK_USERNAME: NewDeployment
+      #     SLACK_MSG_AUTHOR: Release Bot
+      #     SLACK_FOOTER: Please update to the latest version
+      #     SLACK_TITLE: There is a new release available
+      #     SLACK_ICON: https://github.com/rtCamp.png?size=48
+
+
       - name: Slack Notification
         uses: archive/github-actions-slack@v1.0.3
         id: notify
         with:
           slack-bot-user-oauth-access-token: ${{ secrets.SLACK_OAUTH }}
           slack-channel: 02_fixes_and_lms_thingies
-          slack-text: (IGNORE ME)A new version of the lms is available "'${ GITHUB_REF/refs\/tags\/v/ }'"
+          slack-text: (IGNORE ME)A new version of the lms is available "${{ steps.release-label.outputs.new_version }}"
       - name: Result from Slack Notification
         run: echo "The result was ${{ steps.notify.outputs.slack-result }}"

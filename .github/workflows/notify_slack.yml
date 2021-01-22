@@ -19,3 +19,5 @@ jobs:
           MSG_MINIMAL: true
           SLACK_USERNAME: NewDeployment
           SLACK_MSG_AUTHOR: Release Bot
+          SLACK_FOOTER: Please update to the latest version
+          SLACK_TITLE: There is a new release available

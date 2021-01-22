@@ -15,7 +15,7 @@ jobs:
         uses: rtCamp/action-slack-notify@v2
         env:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-          SLACK_MESSAGE: wtc-lms ${{GITHUB_REF/refs\/tags\/v/}} is released
+          SLACK_MESSAGE: wtc-lms "'${ GITHUB_REF/refs\/tags\/v/ }'" is released
           MSG_MINIMAL: true
           SLACK_USERNAME: NewDeployment
           SLACK_MSG_AUTHOR: Release Bot

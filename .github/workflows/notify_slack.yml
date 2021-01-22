@@ -18,3 +18,4 @@ jobs:
           SLACK_MESSAGE: I DID A THING WHOOOHOOO
           MSG_MINIMAL: true
           SLACK_USERNAME: NewDeployment
+          SLACK_MSG_AUTHOR: Release Bot

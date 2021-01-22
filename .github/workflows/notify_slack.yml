@@ -27,6 +27,7 @@ jobs:
       #     SLACK_TITLE: There is a new release available
       #     SLACK_ICON: https://github.com/rtCamp.png?size=48
 
+
       - name: Slack Notification
         uses: archive/github-actions-slack@v1.0.3
         id: notify
